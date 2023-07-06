@@ -14,115 +14,138 @@ class FeeScreen extends GetView<FeeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.primary,
-        iconTheme: const IconThemeData(color: AppColors.white),
-        title: Text(
-          'Fee',
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge
-              ?.copyWith(color: AppColors.white),
-        ),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(kDefaultPadding),
-        decoration: const BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(36),
-            topRight: Radius.circular(36),
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          backgroundColor: AppColors.primary,
+          iconTheme: const IconThemeData(color: AppColors.white),
+          centerTitle: true,
+          title: Text(
+            'Fee',
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: AppColors.white),
           ),
-        ),
-        child: ListView.builder(
-          itemCount: dummyFeeDetailsList.length,
-          itemBuilder: (BuildContext context, int index) {
-            Map<String, dynamic> singleFee = dummyFeeDetailsList[index];
-            return Card(
-              key: ValueKey(singleFee['id']),
-              elevation: 5,
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(kDefaultPadding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Receipt Number'),
-                            Text(
-                              singleFee['receipt_id'].toString(),
-                            )
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Fee Month'),
-                            Text(
-                              singleFee['fee_month'],
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Payment Date'),
-                            Text(
-                              singleFee['payment_date'] != null
-                                  ? DateFormat('yMMMMd')
-                                      .format(singleFee['payment_date'])
-                                  : '-',
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Status'),
-                            Text(
-                              singleFee['status'].toUpperCase(),
-                              style: Theme.of(context).textTheme.labelLarge,
-                            )
-                          ],
-                        ),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Total Amount'),
-                            Text(
-                              '${singleFee['fee_amount']} \$',
-                              style: Theme.of(context).textTheme.labelLarge,
-                            )
-                          ],
-                        ),
-                      ],
+          actions: [
+            _feeController.loading.value
+                ? const SizedBox(
+                    height: 18,
+                    width: 18,
+                    child: CircularProgressIndicator(
+                      color: AppColors.white,
+                      strokeWidth: 1.5,
                     ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: singleFee['status'] == 'paid'
-                        ? LabelIconButtonWidget(
-                            label: 'DOWNLOAD ',
-                            icon: CupertinoIcons.arrow_down_doc,
-                            onTap: () {},
-                          )
-                        : LabelIconButtonWidget(
-                            label: 'PAY NOW ',
-                            icon: Icons.arrow_circle_right_outlined,
-                            onTap: () {},
-                          ),
                   )
-                ],
-              ),
-            );
-          },
+                : const SizedBox.shrink(),
+            const SizedBox(
+              width: 8,
+            ),
+          ],
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(kDefaultPadding),
+          decoration: const BoxDecoration(
+            color: AppColors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(36),
+              topRight: Radius.circular(36),
+            ),
+          ),
+          child: ListView.builder(
+            itemCount: dummyFeeDetailsList.length,
+            itemBuilder: (BuildContext context, int index) {
+              Map<String, dynamic> singleFee = dummyFeeDetailsList[index];
+              return Card(
+                key: ValueKey(singleFee['id']),
+                elevation: 5,
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(kDefaultPadding),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Receipt Number'),
+                              Text(
+                                singleFee['receipt_id'].toString(),
+                              )
+                            ],
+                          ),
+                          const Divider(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Fee Month'),
+                              Text(
+                                singleFee['fee_month'],
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Payment Date'),
+                              Text(
+                                singleFee['payment_date'] != null
+                                    ? DateFormat('yMMMMd')
+                                        .format(singleFee['payment_date'])
+                                    : '-',
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Status'),
+                              Text(
+                                singleFee['status'].toUpperCase(),
+                                style: Theme.of(context).textTheme.labelLarge,
+                              )
+                            ],
+                          ),
+                          const Divider(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text('Total Amount'),
+                              Text(
+                                '${singleFee['fee_amount']} \$',
+                                style: Theme.of(context).textTheme.labelLarge,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: double.infinity,
+                      child: singleFee['status'] == 'paid'
+                          ? LabelIconButtonWidget(
+                              label: 'DOWNLOAD ',
+                              icon: CupertinoIcons.arrow_down_doc,
+                              onTap:
+                                  _feeController.loading.value ? null : () {},
+                            )
+                          : LabelIconButtonWidget(
+                              label: 'PAY NOW ',
+                              icon: Icons.arrow_circle_right_outlined,
+                              onTap: _feeController.loading.value
+                                  ? null
+                                  : () {
+                                      _feeController.payFee(singleFee);
+                                    },
+                            ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

@@ -31,7 +31,10 @@ class NetworkClassServices extends BaseApiServices {
     dynamic decodedResponse;
     try {
       final response = await http
-          .post(Uri.parse(url), body: jsonEncode(data))
+          .post(
+            Uri.parse(url),
+            body: jsonEncode(data),
+          )
           .timeout(const Duration(seconds: 10));
 
       decodedResponse = _processResponse(response);

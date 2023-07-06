@@ -8,6 +8,12 @@ This project is a starting point for a Flutter application.
 
 This a BoilerPlate for Flutter 3.0 with Getx using MVVM Architecture.
 
+## PAYMENT GATEWAY
+
+Stripe is used a payment gateway in this app. You have to add your publish key and secret key in the
+following file
+'lib/constants/url_constants.dart'
+
 ### Screen Shots
 
   <table>

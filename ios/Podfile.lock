@@ -15,6 +15,42 @@ PODS:
   - sqflite (0.0.3):
     - Flutter
     - FMDB (>= 2.7.5)
+  - Stripe (23.7.1):
+    - StripeApplePay (= 23.7.1)
+    - StripeCore (= 23.7.1)
+    - StripePayments (= 23.7.1)
+    - StripePaymentsUI (= 23.7.1)
+    - StripeUICore (= 23.7.1)
+  - stripe_ios (0.0.1):
+    - Flutter
+    - Stripe (~> 23.7.0)
+    - StripeApplePay (~> 23.7.0)
+    - StripeFinancialConnections (~> 23.7.0)
+    - StripePayments (~> 23.7.0)
+    - StripePaymentSheet (~> 23.7.0)
+    - StripePaymentsUI (~> 23.7.0)
+  - StripeApplePay (23.7.1):
+    - StripeCore (= 23.7.1)
+  - StripeCore (23.7.1)
+  - StripeFinancialConnections (23.7.1):
+    - StripeCore (= 23.7.1)
+    - StripeUICore (= 23.7.1)
+  - StripePayments (23.7.1):
+    - StripeCore (= 23.7.1)
+    - StripePayments/Stripe3DS2 (= 23.7.1)
+  - StripePayments/Stripe3DS2 (23.7.1):
+    - StripeCore (= 23.7.1)
+  - StripePaymentSheet (23.7.1):
+    - StripeApplePay (= 23.7.1)
+    - StripeCore (= 23.7.1)
+    - StripePayments (= 23.7.1)
+    - StripePaymentsUI (= 23.7.1)
+  - StripePaymentsUI (23.7.1):
+    - StripeCore (= 23.7.1)
+    - StripePayments (= 23.7.1)
+    - StripeUICore (= 23.7.1)
+  - StripeUICore (23.7.1):
+    - StripeCore (= 23.7.1)
   - Toast (4.0.0)
 
 DEPENDENCIES:
@@ -23,10 +59,19 @@ DEPENDENCIES:
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - stripe_ios (from `.symlinks/plugins/stripe_ios/ios`)
 
 SPEC REPOS:
   trunk:
     - FMDB
+    - Stripe
+    - StripeApplePay
+    - StripeCore
+    - StripeFinancialConnections
+    - StripePayments
+    - StripePaymentSheet
+    - StripePaymentsUI
+    - StripeUICore
     - Toast
 
 EXTERNAL SOURCES:
@@ -40,6 +85,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
+  stripe_ios:
+    :path: ".symlinks/plugins/stripe_ios/ios"
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
@@ -48,8 +95,17 @@ SPEC CHECKSUMS:
   path_provider_foundation: eaf5b3e458fc0e5fbb9940fb09980e853fe058b8
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   sqflite: 31f7eba61e3074736dff8807a9b41581e4f7f15a
+  Stripe: fbe3d1d61cba70ac7a920c6097222ba9525352c4
+  stripe_ios: 8e0be46c31e1758756e5fdc1613f751d4d945ae0
+  StripeApplePay: 06e3899c9db102567804b77c41cec2861b5e2c39
+  StripeCore: 9b331e5f9d4067ef7296718c680a73ad6f2d1066
+  StripeFinancialConnections: 7d8116c4dcd3b034f13a181b4d96e6991b594cfc
+  StripePayments: 46fbd561312cb300c93dd855b9c896285c8eb1fb
+  StripePaymentSheet: 016fd1c6053efff1f348fc6f44babecacda9d0af
+  StripePaymentsUI: cb06c01d3c9efde91ebce218f9e4e94e902dd676
+  StripeUICore: a9db3f2a82c932d5ca58dd8fc4ac0a6b72f1ccee
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+PODFILE CHECKSUM: 351dbda8241c6ae667acbc7bc0353a0d9978d7f1
 
 COCOAPODS: 1.12.1

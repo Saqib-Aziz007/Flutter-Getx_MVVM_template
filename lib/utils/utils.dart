@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_mvvm_template/constants/app_colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
@@ -47,14 +48,26 @@ class Utils {
         });
   }
 
-  static showToast(text) {
+  static showErrorToast(text) {
     Fluttertoast.showToast(
       msg: text,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.TOP,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
+      timeInSecForIosWeb: 2,
+      backgroundColor: AppColors.errorContainer,
+      textColor: AppColors.error,
+      fontSize: 16.0,
+    );
+  }
+
+  static showInfoToast(text) {
+    Fluttertoast.showToast(
+      msg: text,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 2,
+      backgroundColor: AppColors.secondaryContainer,
+      textColor: AppColors.primary,
       fontSize: 16.0,
     );
   }

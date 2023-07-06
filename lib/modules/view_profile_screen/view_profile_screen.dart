@@ -51,6 +51,7 @@ class ViewProfileScreen extends GetView<ViewProfileController> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: AppColors.primary,
         iconTheme: const IconThemeData(color: AppColors.white),
         title: Text(

@@ -19,6 +19,7 @@ class CustomDesignScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: AppColors.primary,
         iconTheme: const IconThemeData(color: AppColors.white),
         title: Text(

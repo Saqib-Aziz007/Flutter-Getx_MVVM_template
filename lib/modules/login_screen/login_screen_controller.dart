@@ -37,9 +37,11 @@ class LoginController extends GetxController {
         passwordTextController.value.text.toLowerCase() == 'admin') {
       await prefs.setString(StorageConstants.token, 'admin');
       await prefs.setBool(StorageConstants.firstTimeOpen, true);
+      Utils.showInfoToast('Logged in successfully');
+
       Get.toNamed(AppRoutes.homeScreen);
     } else {
-      Utils.showToast('Invalid credentials');
+      Utils.showErrorToast('Invalid credentials');
     }
   }
 }

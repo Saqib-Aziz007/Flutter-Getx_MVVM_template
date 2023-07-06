@@ -48,7 +48,7 @@ List<Map<String, dynamic>> dummyFeeDetailsList = [
   {
     'id': 1,
     'receipt_id': 182318,
-    'fee_amount': 980,
+    'fee_amount': 120,
     'fee_month': 'July',
     'payment_date': null,
     'status': 'pending'
@@ -56,7 +56,7 @@ List<Map<String, dynamic>> dummyFeeDetailsList = [
   {
     'id': 2,
     'receipt_id': 182317,
-    'fee_amount': 980,
+    'fee_amount': 135,
     'fee_month': 'June',
     'payment_date': DateTime(dateNow.year, dateNow.month - 1, dateNow.day),
     'status': 'paid'
